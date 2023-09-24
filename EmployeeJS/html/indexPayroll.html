@@ -54,10 +54,10 @@
             "<th>Gender</th>" +
             "<th>Department</th>" +
             "<th>Salary</th>" +
-            "<th>Start Date</th>" +
+            "<th>StartDate</th>" +
             "<th>Actions</th>";
         let innerHtml = `${headerHtml}`;
-        fetch("../assets/json/db.json")
+        fetch("..\assets\json\db.json")
             .then(response => response.json())
             .then(data => {
                 empList = data.employee;
@@ -73,13 +73,12 @@
             <td>${array[i].startDate}</td>
             <td>
                 <div>
-                    <img id="${array[i].id}" src="../asset/assets/icons/create-black-18dp.svg" onclick="edit(this)"/>
-                    <img id="${array[i].id}" src="../asset/assets/icons/delete-black-18dp.svg" onclick="remove(this)"/>
+                    <img id="${array[i].id}" src="../assets/icons/create-black-18dp.svg" onclick="edit(this)"/>
+                    <img id="${array[i].id}" src="../assets/icons/delete-black-18dp.svg" onclick="remove(this)"/>
                 </div>
             </td>
         </tr>` ;
                 }
-
                 document.getElementById('display-table').innerHTML = innerHtml;
             });
     }
@@ -87,24 +86,24 @@
         console.log(node.id);
         var data = empList.find(x => x.id == node.id);
         if (!data) return;
-        const index = empList.findIndex(x => x.id==data.id);
-        empList.splice(index,1);
+        const index = empList.findIndex(x => x.id == data.id);
+        empList.splice(index, 1);
         createInnerHtml();
     }
     const edit = (node) => {
         var data = empList.find(x => x.id == node.id);
         console.log(data);
-        var obj={
-            name:data.name,
-            profileImage:data.profileUrl,
-            gender:data.gender,
-            department:data.departMent,
-            salary:data.salary,
-            dob:data.startDate,
-            comments:data.notes
+        var obj = {
+            name: data.name,
+            profileImage: data.profileUrl,
+            gender: data.gender,
+            department: data.departMent,
+            salary: data.salary,
+            dob: data.startDate,
+            comments: data.notes
         }
-        localStorage.setItem("obj",JSON.stringify(obj));
-        window.location.href="addEmployee.html";
+        localStorage.setItem("obj", JSON.stringify(obj));
+        window.location.href = "addEmployee.html";
     }
 </script>
 <style>

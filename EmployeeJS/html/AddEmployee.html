@@ -245,6 +245,75 @@
         </div>
 
 </body>
+
+<script>
+     window.addEventListener('DOMContentLoaded', (event) => {
+        var data = JSON.parse(localStorage.getItem("obj"));
+        console.log(data);
+        document.getElementById("name").value = data.name;
+        document.getElementById("salary").value = data.salary;
+    })
+    let name = "";
+    let profileImage = "";
+    let gender = "";
+    let dept = "";
+    let sal = "";
+    let day = "", month = "", year = "";
+    let comment = "";
+    function nameChange(event) {
+        name = event.target.value;
+    }
+    function profileImageChange(event) {
+        profileImage = event.target.value;
+    }
+    function genderChange(event) {
+        gender = event.target.value;
+    }
+    function deptChange(event) {
+        dept = event.target.value;
+    }
+    function salaryChange(event) {
+        sal = event.target.value;
+    }
+    function dayChange(event) {
+        day = event.target.value;
+    }
+    function monthChange(event) {
+        month = event.target.value;
+    }
+    function yearChange(event) {
+        year = event.target.value;
+    }
+    function commentsChange(event) {
+        comment = event.target.value;
+    }
+    function submitClick() {
+        console.log(name + "\n" + profileImage + "\n" + gender + "\n" + dept + "\n" + sal + "\n"
+            + day + ":" + month + ":" + year + "\n" + comment);
+        var obj = {
+            name: name,
+            profileImage: profileImage,
+            gender: gender,
+            department: dept,
+            salary: sal,
+            dob: day + ":" + month + ":" + year,
+            comments: comment
+        }
+        localStorage.setItem("EmpObject", JSON.stringify(obj));
+        var retrieval = localStorage.getItem("EmpObject");
+        console.log(retrieval);
+    }
+    function resetClick() {
+        name = "";
+        document.getElementById("name").value = "";
+        sal = "";
+        document.getElementById("salary").value = "";
+    }
+    function cancelClick() {
+        window.location.href = "employeeHome.html";
+    }
+</script>
+
 <style>
     *{
     margin:0;
