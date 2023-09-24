@@ -1,0 +1,534 @@
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Add Employee</title>
+
+</head>
+
+
+
+<body>
+
+    <div class="main">
+
+        <div class="header">
+
+            <img src="../asset/assets/images/logo.png" class="logo" />
+
+            <div class="header-main">
+
+                <div class="employee">EMPLOYEE</div>
+
+                <div class="payroll">PAYROLL</div>
+
+            </div>
+
+        </div>
+
+        <div class="container">
+
+            <div class="container-main">
+
+                    <div class="container-header"><span>Employee Payroll Form</span>
+                      
+                    </div>
+                   
+
+                    <div class="label-container">
+
+                        <label class="label-header">Name</label>
+
+                        <div class="input-field">
+
+                            <input type="text" placeholder="Enter Name" class="input-text">
+
+                        </div>
+
+                    </div>
+
+                    <div class="label-container">
+
+                        <label class="label-header">Profile Image</label>
+
+                        <div class="radio-field">
+
+                            <input type="radio" id="image1" name="image" value="1" class="input-radio">
+
+                            <label><img src="../asset/assets/profile-images/Ellipse -1.png"></label>
+
+                            <input type="radio" id="image2" name="image" value="2" class="input-radio">
+
+                            <label><img src="../asset/assets/profile-images/Ellipse -2.png"></label>
+
+                            <input type="radio" id="image3" name="image" value="3" class="input-radio">
+
+                            <label><img src="../asset/assets/profile-images/Ellipse -3.png"></label>
+
+                            <input type="radio" id="image4" name="image" value="4" class="input-radio">
+
+                            <label><img src="../asset/assets/profile-images/Ellipse -4.png"></label>
+
+                        </div>
+
+                    </div>
+
+                    <div class="label-container">
+
+                        <label class="label-header">Gender</label>
+
+                        <div class="radio-field-gender">
+
+                            <input type="radio" id="male" name="gender" value="male" class="input-radio">
+
+                            <label class="gender-font" style="padding-right: 15px;">Male</label>
+
+                            <input type="radio" id="female" name="gender" value="female" class="input-radio">
+
+                            <label class="gender-font">Female</label>
+
+                        </div>
+
+                    </div>
+
+                    <div class="label-container">
+
+                        <label class="label-header">Department</label>
+
+                        <div class="radio-field">
+
+                            <input type="checkbox" id="checkbox1" name="dept" value="HR" class="input-checkbox">
+
+                            <label>HR</label>
+
+                            <input type="checkbox" id="checkbox2" name="dept" value="Sales" class="input-checkbox">
+
+                            <label>Sales</label>
+
+                            <input type="checkbox" id="checkbox3" name="dept" value="Finance" class="input-checkbox">
+
+                            <label>Finance</label>
+
+                            <input type="checkbox" id="checkbox4" name="dept" value="Engineer" class="input-checkbox">
+
+                            <label>Engineer</label>
+
+                            <input type="checkbox" id="checkbox5" name="dept" value="Others" class="input-checkbox">
+
+                            <label>Others</label>
+
+                        </div>
+
+                    </div>
+
+                    <div class="label-container">
+
+                        <label class="label-header">Salary</label>
+
+                        <div class="input-field">
+
+                            <select id="salary" name="salary">
+
+                                <option value="">Select</option>
+
+                                <option value="10000">10000</option>
+
+                                <option value="20000">20000</option>
+
+                                <option value="30000">30000</option>
+
+                                <option value="40000">40000</option>
+
+                                <option value="50000">50000</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="label-container">
+
+                        <label class="label-header">Start Date</label>
+
+                        <div class="input-field">
+
+                            <select class="common-date" id="day" name="day">
+
+                                <option value="">Select</option>
+
+                                <option value="1">1</option>
+
+                                <option value="2">2</option>
+
+                                <option value="3">3</option>
+
+                                <option value="4">4</option>
+
+                                <option value="5">5</option>
+
+                            </select>
+
+                            <select class="common-date" id="month" name="month">
+
+                                <option value="">Select</option>
+
+                                <option value="Jan">Jan</option>
+
+                                <option value="Feb">Feb</option>
+
+                                <option value="Mar">Mar</option>
+
+                                <option value="Apr">Apr</option>
+
+                                <option value="May">May</option>
+
+                            </select>
+
+                            <select class="common-date" id="year" name="year">
+
+                                <option value="">Select</option>
+
+                                <option value="2019">2019</option>
+
+                                <option value="2020">2020</option>
+
+                                <option value="2021">2021</option>
+
+                                <option value="2022">2022</option>
+
+                                <option value="2023">2023</option>
+
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div class="label-container-text">
+
+                        <label class="label-header">Notes</label>
+
+                        <div class="input-field">
+                            <textarea name="" id="" cols="30" rows="3"></textarea>
+
+                           
+
+                        </div>
+
+                    </div>
+
+                    <div class="button-common">
+
+                        <button id="hover">Cancel</button>
+
+                     
+
+                            <div class="button">
+
+                                <button id="submit">Submit</button>
+                                <button id="hover">Reset</button>
+
+                            </div>
+
+                          
+                    </div>
+
+                
+
+            </div>
+
+        </div>
+
+</body>
+<style>
+    *{
+    margin:0;
+}
+.gender-font {
+
+    font: normal normal normal 18px/24px Roboto;
+
+    letter-spacing: 0px;
+
+    color: #42515F;
+
+}
+
+
+
+.logo {
+
+    width: 50px;
+
+    height: 47px;
+
+    padding-right: 3px;
+
+}
+
+
+
+.header {
+
+    display: flex;
+
+    align-items: center;
+
+    padding-left: 120px;
+
+    height: 10%;
+
+}
+
+
+
+.header-main {
+
+    width: 127px;
+
+}
+
+
+
+.employee {
+
+    height: 24px;
+
+    font: normal normal bold 22px/25px Montserrat;
+
+    color: #82A70C;
+
+}
+
+
+
+.payroll {
+
+    height: 24px;
+
+    font: normal normal bold 22px/25px Montserrat;
+
+}
+
+
+
+.container {
+    
+
+    height: 90%;
+
+    background: #F7F7F7  ;
+
+    padding: 0px 120px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+}
+
+
+
+.container-main {
+
+  
+    width: 70%;
+
+    height: 79%;
+
+    padding: 5%;
+
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+
+    box-shadow: 0px 3px 6px #00000029;
+
+    border: 1px solid #F5F5F5;
+
+    border-radius: 8px;
+
+}
+
+
+
+
+
+
+.container-header {
+    
+
+    height: 41px;
+
+    font: normal normal bold 28px/37px Roboto;
+
+    letter-spacing: 0px;
+
+    color: #42515F;
+
+}
+
+
+
+input.input-text {
+
+    width: 310px;
+
+    height: 32px;
+
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+
+    border: 1px solid #BDBDBD;
+
+    border-radius: 3px;
+
+    padding-left: 6px;
+
+}
+
+
+
+.label-container {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-top: 2%;
+
+}
+
+
+
+label.label-header {
+
+    font: normal normal normal 18px/24px Roboto;
+
+    letter-spacing: 0px;
+
+    color: #42515F;
+
+    width: 100px;
+
+}
+
+
+
+.radio-field {
+
+    display: flex;
+
+    width: 450px;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+}
+
+
+
+.radio-field-gender {
+
+    width: 450px;
+
+}
+
+
+
+#salary {
+
+    width: 200px;
+
+    height: 37px;
+
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+
+    border: 1px solid #BDBDBD;
+
+    border-radius: 3px;
+
+}
+
+
+
+.input-field {
+
+    width: 450px;
+
+}
+
+
+
+.common-date {
+
+    height: 37px;
+
+    width: 85px;
+
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+
+    border: 1px solid #BDBDBD;
+
+    border-radius: 3px;
+
+}
+
+
+
+.label-container-text {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding-top: 20px;
+
+}
+
+.button-common {
+
+   
+    display: flex;
+    margin-top: 5%;
+    justify-content: space-around;
+    height: 30px;
+    width: 50vw;
+
+}
+.button{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+#submit:hover{
+    background-color: #82A70C;
+}
+
+#hover:hover{
+    background-color: #a5aeb6;
+}
+
+button{
+    padding: 10px 30px 25px 30px;
+   
+    background-color: rgb(214, 213, 213);
+    border-color: transparent;
+    border-radius: 4px;
+    
+}
+
+
+</style>
+</html>

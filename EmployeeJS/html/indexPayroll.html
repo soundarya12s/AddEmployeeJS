@@ -1,0 +1,282 @@
+<html lang="en">
+
+
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Employee</title>
+
+</head>
+
+
+
+<body onload="createInnerHtml()">
+
+    <div class="main">
+        <div class="header">
+            <img src="../asset/assets/images/logo.png" class="logo" />
+            <div class="header-main">
+                <div class="employee">EMPLOYEE</div>
+                <div class="payroll">PAYROLL</div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="Employee-header">
+                <span id="employee-details">Employee Details</span> 
+                <div class="inside-employee-header">
+                    <img src="../asset/assets/icons/attach_file-24px.svg" alt="">
+                    <a href="AddEmployee.html"><button type="button" formaction="AddEmployee.html" class="add-button"><img src="../asset/assets/icons/add-24px.svg" alt="" class="add-img"/>Add User</button>
+                    </a>
+                </div>
+             </div>
+             <div class="tabular-column">
+                 <table id="display-table" class="table-emp">
+                  
+                    
+                 </table>
+             </div>
+        </div>
+        
+    </div>
+</body>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        createInnerHtml();
+    })
+    var array;
+    let empList;
+    const createInnerHtml = () => {
+        const headerHtml = "<th></th>" +
+            "<th>Name</th>" +
+            "<th>Gender</th>" +
+            "<th>Department</th>" +
+            "<th>Salary</th>" +
+            "<th>Start Date</th>" +
+            "<th>Actions</th>";
+        let innerHtml = `${headerHtml}`;
+        fetch("../assets/json/db.json")
+            .then(response => response.json())
+            .then(data => {
+                empList = data.employee;
+                array = [...empList];
+                for (var i = 0; i < array.length; i++) {
+                    innerHtml = `${innerHtml}
+        <tr class="table-row">
+            <td><img style="width: 30px;" src=${array[i].profileUrl} /></td>
+            <td>${array[i].name}</td>
+            <td>${array[i].gender}</td>
+            <td>${array[i].departMent}</td>
+            <td>${array[i].salary}</td>
+            <td>${array[i].startDate}</td>
+            <td>
+                <div>
+                    <img id="${array[i].id}" src="../asset/assets/icons/create-black-18dp.svg" onclick="edit(this)"/>
+                    <img id="${array[i].id}" src="../asset/assets/icons/delete-black-18dp.svg" onclick="remove(this)"/>
+                </div>
+            </td>
+        </tr>` ;
+                }
+
+                document.getElementById('display-table').innerHTML = innerHtml;
+            });
+    }
+    const remove = (node) => {
+        console.log(node.id);
+        var data = empList.find(x => x.id == node.id);
+        if (!data) return;
+        const index = empList.findIndex(x => x.id==data.id);
+        empList.splice(index,1);
+        createInnerHtml();
+    }
+    const edit = (node) => {
+        var data = empList.find(x => x.id == node.id);
+        console.log(data);
+        var obj={
+            name:data.name,
+            profileImage:data.profileUrl,
+            gender:data.gender,
+            department:data.departMent,
+            salary:data.salary,
+            dob:data.startDate,
+            comments:data.notes
+        }
+        localStorage.setItem("obj",JSON.stringify(obj));
+        window.location.href="addEmployee.html";
+    }
+</script>
+<style>
+    @font-face {
+    font-family: Roboto;
+    src: url('../fonts/Roboto-Light.ttf');
+}
+
+@font-face {
+    font-family: roboto-bold;
+    src: url('../fonts/Roboto-Bold.ttf');
+}
+
+* {
+    margin: 0;
+}
+
+.logo {
+
+    width: 50px;
+
+    height: 47px;
+
+    padding-right: 3px;
+
+}
+
+
+
+.header {
+
+    display: flex;
+
+    align-items: center;
+
+    padding-left: 120px;
+
+    height: 10%;
+    background-color: white;
+
+}
+
+
+
+.header-main {
+
+    width: 127px;
+
+}
+
+.employee {
+
+    height: 24px;
+
+    font: normal normal bold 22px/25px Montserrat;
+
+    color: #82A70C;
+
+}
+
+
+
+.payroll {
+
+    height: 24px;
+
+    font: normal normal bold 22px/25px Montserrat;
+
+}
+
+.inside-employee-header{
+    display: flex;
+    justify-content: space-between;
+    width: 15%;
+}
+
+.add-button{
+    margin-left: 20px;
+    width: 90%;
+    padding: 5px 20px 5px 10px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-weight: bold;
+    background-color: #82A70C;
+    border-color: transparent;
+    border-radius: 4px;
+    color: #FFFFFF;
+}
+a{
+    text-decoration: none;
+}
+#edit-dlt{
+    align-items: stretch;
+}
+
+.dept-cont{
+    align-items: center;
+}
+
+.dept{
+    background-color: #E9FEA5;
+    color: #3D3D3D;
+    padding: 4%;
+    font-size: 11px;
+    border-radius: 8px;
+}
+
+.table-img {
+    margin: 10px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.tabular-column {
+
+    width: 80%;
+    height: 70%;
+}
+
+#employee-details {
+    height: 24px;
+
+    font: normal normal bold 22px/25px roboto-bold;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+br {
+    border-color: #E3E3E3;
+}
+
+td {
+    background-color: #FFFFFF;
+    height: 50px;
+    color: #3D3D3D;
+    font-family: Roboto;
+    font-weight: bold;
+}
+
+th {
+    text-align: left;
+    font-size: 12px;
+    font-family: Roboto;
+    background-color: #42515F;
+    color: #FFFFFF;
+    height: 50px;
+}
+
+.tabular-column {
+    align-self: center;
+}
+
+.main {
+    height: 100%;
+    background-color: #F7F7F7;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.Employee-header {
+    padding: 20px 0px 20px 0px;
+    display: flex;
+    justify-content: space-around;
+}
+</style>
+</html>
